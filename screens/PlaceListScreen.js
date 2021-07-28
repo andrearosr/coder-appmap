@@ -24,7 +24,7 @@ const PlaceListScreen = ({ navigation }) => {
 
     const renderItem = data => (
         <PlaceItem
-            image={null}
+            image={data.item.image}
             address={null}
             title={data.item.title}
             onSelect={() => navigation.push('Detalle')}
