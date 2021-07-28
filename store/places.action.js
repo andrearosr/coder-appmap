@@ -1,7 +1,6 @@
-const initialState = {
-    places: []
-}
+export const ADD_PLACE = 'ADD_PLACE'
 
-export default (state = initialState, action) => {
-    return state
+
+export const addPlace = (title) => {
+    return { type: ADD_PLACE, payload: {title}}
 }
