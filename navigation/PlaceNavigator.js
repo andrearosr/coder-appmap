@@ -15,7 +15,7 @@ const PlaceStack = createStackNavigator()
 
 const PlaceNavigator = () => (
     <PlaceStack.Navigator
-        initialRoute='Place'
+        initialRoute="Direcciones"
         screenOptions={{
             headerStyle: {
                 backgroundColor: Platform.OS === 'android' ? COLORS.DARK_SIENNA : '',
