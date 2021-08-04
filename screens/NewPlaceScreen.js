@@ -29,7 +29,7 @@ const NewPlaceScreen = ({ navigation }) => {
                     value={title}
                 />
                 <ImageSelector onImage={onHandlerImage} />
-                <LocationPicker />
+                <LocationPicker navigation={navigation} />
                 <View style={styles.footer}>
                     <Button
                         title="Grabar Dirección"

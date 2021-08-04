@@ -11,7 +11,7 @@ import * as Location from 'expo-location';
 import { COLORS } from '../constants';
 import MapPreview from './MapPreview';
 
-const LocationPicker = props => {
+const LocationPicker = ({ navigation }) => {
   const [isFetching, setIsFetching] = useState(false);
   const [pickedLocation, setPickedLocation] = useState();
 
@@ -50,6 +50,8 @@ const LocationPicker = props => {
     }
   };
 
+  const pickLocationHandler = () => navigation.push('Map');
+
   return (
     <View style={styles.locationPicker}>
       <MapPreview style={styles.mapPreview} location={pickedLocation}>
@@ -58,11 +60,18 @@ const LocationPicker = props => {
           : <Text>En proceso...</Text>
         }
       </MapPreview>
-      <Button
-        title="Obtener Ubicación"
-        color={COLORS.PEACH_PUFF}
-        onPress={getLocationHandler}
-      />
+      <View style={styles.actions}>
+        <Button
+          title="Obtener Ubicación"
+          color={COLORS.PEACH_PUFF}
+          onPress={getLocationHandler}
+        />
+        <Button
+          title="Elegir Ubicación"
+          color={COLORS.LIGTH_PINK}
+          onPress={pickLocationHandler}
+        />
+      </View>
     </View>
   );
 }
@@ -78,6 +87,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 150,
   },
+  actions: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+  }
 });
 
 export default LocationPicker;
