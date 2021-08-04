@@ -77,8 +77,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     width: '100%',
     height: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

@@ -13,6 +13,7 @@ const MapPreview = ({ location, style, children }) => {
       &markers=color:blue%7Clabel:S%7C${loc.lat},${loc.lng}
       &key=${MAP.API_KEY}
   `;
+
   return (
     <View style={{ ...styles.mapPreview, ...style }}>
       {location
