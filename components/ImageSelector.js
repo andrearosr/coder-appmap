@@ -55,7 +55,7 @@ const ImageSelector = props => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    marginBottom: 15,
   },
   preview: {
     width: '100%',
