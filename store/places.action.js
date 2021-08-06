@@ -7,14 +7,14 @@ export const LOAD_PLACES = 'LOAD_PLACES';
 
 export const addPlace = (title, image, location) => {
     return async dispatch => {
-        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?
-            latlng=${location.lat},${location.lng}
-            &key=${MAP.API_KEY}`
+        console.log(location)
+        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${MAP.API_KEY}`
         );
 
-        if (!response.ok) throw new Error('[GEOCODE] Algo malo ha sucedido');
+        //if (!response.ok) throw new Error('[GEOCODE] Algo malo ha sucedido');
         
         const resData = await response.json();
+        console.log(resData)
         if (!resData.results) throw new Error('[GEOCODE] Algo malo ha sucedido');
         
         const address = resData.results[0].formatted_address;

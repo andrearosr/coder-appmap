@@ -11,7 +11,7 @@ import * as Location from 'expo-location';
 import { COLORS } from '../constants';
 import MapPreview from './MapPreview';
 
-const LocationPicker = ({ navigation }) => {
+const LocationPicker = ({ navigation, onLocationPicked }) => {
   const [isFetching, setIsFetching] = useState(false);
   const [pickedLocation, setPickedLocation] = useState();
 
@@ -34,11 +34,12 @@ const LocationPicker = ({ navigation }) => {
       const location = await Location.getCurrentPositionAsync({
         timeout: 5000,
       });
-      console.log(location);
-      setPickedLocation({
+      const data = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
-      });
+      };
+      setPickedLocation(data);
+      onLocationPicked(data);
     } catch(err) {
       Alert.alert(
         'No se pudo obtener la localización',
