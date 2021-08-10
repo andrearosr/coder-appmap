@@ -11,9 +11,10 @@ import * as Location from 'expo-location';
 import { COLORS } from '../constants';
 import MapPreview from './MapPreview';
 
-const LocationPicker = ({ navigation, onLocationPicked }) => {
+const LocationPicker = ({ navigation, route, onLocationPicked }) => {
   const [isFetching, setIsFetching] = useState(false);
   const [pickedLocation, setPickedLocation] = useState();
+  const picked = route.params?.picked || null;
 
   useEffect(() => {
     (async () => {
@@ -27,6 +28,13 @@ const LocationPicker = ({ navigation, onLocationPicked }) => {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    if (picked) {
+      setPickedLocation(picked);
+      onLocationPicked(picked);
+    }
+  }, [picked, onLocationPicked]);
 
   const getLocationHandler = async () => {
     try {

@@ -36,6 +36,7 @@ const NewPlaceScreen = ({ navigation, route }) => {
                 <ImageSelector onImage={onHandlerImage} />
                 <LocationPicker
                     navigation={navigation}
+                    route={route}
                     onLocationPicked={onHandlerLocationPicked}
                 />
                 <View style={styles.footer}>
