@@ -39,3 +39,16 @@ export const insertAddress = (
     })
   })
 }
+
+export const fetchAddresses = () => {
+  return new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        'SELECT * FROM address',
+        [],
+        (_, result) => resolve(result),
+        (_, error) => reject(error),
+      )
+    })
+  })
+}

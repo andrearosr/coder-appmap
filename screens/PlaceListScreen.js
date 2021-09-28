@@ -5,7 +5,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 import PlaceItem from '../components/PlaceItem';
 
-import { loadAddresses } from '../store/places.actions';
+import { loadPlaces } from '../store/places.actions';
 
 const PlaceListScreen = ({ navigation }) => {
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const PlaceListScreen = ({ navigation }) => {
     }, [navigation]);
 
     useEffect(() => {
-        dispatch(loadAddresses());
+        dispatch(loadPlaces());
     }, []);
 
     const renderItem = (data) => (
