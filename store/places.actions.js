@@ -11,7 +11,7 @@ export const addPlace = (title, image, location) => {
         const resData = await response.json();
 
         const address = resData.results[0].formatted_address;
-        console.log(address);
+        console.log(address)
 
         const fileName = image.split('/').pop()
         const Path = FileSystem.documentDirectory + fileName;
@@ -25,9 +25,9 @@ export const addPlace = (title, image, location) => {
             const result = await insertAddress(
                 title,
                 Path,
-                'Address',
-                10.45,
-                20.90,
+                address,
+                location.lat,
+                location.lng,
             );
 
             dispatch({
@@ -36,6 +36,9 @@ export const addPlace = (title, image, location) => {
                     id: result.insertId,
                     title,
                     image: Path,
+                    address: address,
+                    lat: location.lat,
+                    lng: location.lng,
                 }
             });
         } catch (err) {

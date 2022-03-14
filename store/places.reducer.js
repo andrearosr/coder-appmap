@@ -12,6 +12,9 @@ export default (state = initialState, action) => {
                 action.payload.id,
                 action.payload.title,
                 action.payload.image,
+                action.payload.address,
+                action.payload.lat,
+                action.payload.lng
             );
             return {
                 ...state,
@@ -24,6 +27,9 @@ export default (state = initialState, action) => {
                     item.id,
                     item.title,
                     item.image,
+                    item.address,
+                    item.lat,
+                    item.lng,
                 ))
             }
         default:

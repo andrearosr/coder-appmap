@@ -33,7 +33,7 @@ const PlaceListScreen = ({ navigation }) => {
         <PlaceItem
             title={data.item.title}
             image={data.item.image}
-            address="123 Street, City, Country"
+            address={data.item.address}
             onSelect={() => navigation.navigate('Detalle')}
         />
     )
